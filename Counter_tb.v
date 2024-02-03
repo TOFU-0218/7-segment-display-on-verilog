@@ -1,6 +1,8 @@
 module Counter_tb;
     reg i_clk = 0;
-    wire [1:0] o_count;
+    reg i_rst = 0;
+    wire [1:0] o_ctrl;
+    wire [3:0] o_digitSelect;
 
     initial begin
         $dumpfile("wave.vcd");
@@ -9,7 +11,9 @@ module Counter_tb;
 
     Counter DUT(
         .i_clk  (i_clk  ),
-        .o_count(o_count)
+        .i_rst  (i_rst  ),
+        .o_ctrl(o_ctrl),
+        .o_digitSelect(o_digitSelect)
     );
     
     always #1 begin
@@ -17,6 +21,9 @@ module Counter_tb;
     end
     
     initial begin
+        i_rst <= 1;
+        #5
+        i_rst <= 0;
         #50
         $finish;
     end
