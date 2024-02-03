@@ -15,7 +15,7 @@ module Counter(
                 2'b01 : o_digitSelect <= 4'b1101;
                 2'b10 : o_digitSelect <= 4'b1011;
                 2'b11 : o_digitSelect <= 4'b0111;
-                default : o_digitSelect <= 4'b1111;
+                default : o_digitSelect <= 4'b1111; // 桁選択は不論理のため注意
             endcase
         end
     end
