@@ -9,7 +9,7 @@ module Counter(
             o_ctrl <= 2'b00;
             o_digitSelect <= 4'b1110;
         end else begin
-            o_ctrl = o_ctrl + 1;
+            o_ctrl = o_ctrl + 1; // ブロッキング代入にするとなぜか動く。要修正。
             case (o_ctrl)
                 2'b00 : o_digitSelect <= 4'b1110;
                 2'b01 : o_digitSelect <= 4'b1101;
