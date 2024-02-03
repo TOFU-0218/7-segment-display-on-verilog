@@ -22,7 +22,11 @@ module Counter_tb;
     
     initial begin
         i_rst <= 1;
-        #5
+        #4
+        i_rst <= 0;
+        #50
+        i_rst <= 1;
+        #4
         i_rst <= 0;
         #50
         $finish;
