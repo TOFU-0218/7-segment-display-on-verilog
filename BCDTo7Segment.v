@@ -1,14 +1,14 @@
 module BCDTo7Segment(
     input [15:0] i_BCD,
+    output [7:0] o_data_0,
     output [7:0] o_data_1,
     output [7:0] o_data_2,
-    output [7:0] o_data_3,
-    output [7:0] o_data_4
+    output [7:0] o_data_3
 );
-    assign o_data_1 = conversion_BCD(i_BCD[3:0]);
-    assign o_data_2 = conversion_BCD(i_BCD[7:4]);
-    assign o_data_3 = conversion_BCD(i_BCD[11:8]);
-    assign o_data_4 = conversion_BCD(i_BCD[15:12]);
+    assign o_data_0 = conversion_BCD(i_BCD[3:0]);
+    assign o_data_1 = conversion_BCD(i_BCD[7:4]);
+    assign o_data_2 = conversion_BCD(i_BCD[11:8]);
+    assign o_data_3 = conversion_BCD(i_BCD[15:12]);
     //=================
     //各数字の変換説明
     //#A#

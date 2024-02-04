@@ -1,9 +1,9 @@
 module BCDTo7Segment_tb;
     reg [15:0] i_BCD =  16'b0;
+    wire [7:0] o_data_0;
     wire [7:0] o_data_1;
     wire [7:0] o_data_2;
     wire [7:0] o_data_3;
-    wire [7:0] o_data_4;
 
     initial begin
         $dumpfile("wave.vcd");
@@ -12,10 +12,10 @@ module BCDTo7Segment_tb;
 
     BCDTo7Segment DUT(
         .i_BCD  (i_BCD  ),
-        .o_data_1(o_data_1),
-        .o_data_2(o_data_2),
-        .o_data_3(o_data_3),
-        .o_data_4(o_data_4)
+        .o_data_1(o_data_0),
+        .o_data_2(o_data_1),
+        .o_data_3(o_data_2),
+        .o_data_4(o_data_3)
     );
 
     initial begin
