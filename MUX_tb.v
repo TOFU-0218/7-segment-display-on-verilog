@@ -1,8 +1,8 @@
 module MUX_tb;
-    reg [8:0] i_data_0 = 9'b000000000;
-    reg [8:0] i_data_1 = 9'b000000001;
-    reg [8:0] i_data_2 = 9'b000000010;
-    reg [8:0] i_data_3 = 9'b000000011;
+    reg [8:0] i_data_0 = 8'b00000000;
+    reg [8:0] i_data_1 = 8'b00000001;
+    reg [8:0] i_data_2 = 8'b00000010;
+    reg [8:0] i_data_3 = 8'b00000011;
     reg i_clk = 0;
     reg [1:0] i_ctrl = 2'b00;
     reg i_rst = 0;
@@ -31,10 +31,10 @@ module MUX_tb;
     initial begin
         i_rst <= 1;
         #4
-        i_data_0 <= 9'd1;
-        i_data_1 <= 9'd2;
-        i_data_2 <= 9'd3;
-        i_data_3 <= 9'd4;
+        i_data_0 <= 8'd1;
+        i_data_1 <= 8'd2;
+        i_data_2 <= 8'd3;
+        i_data_3 <= 8'd4;
         #2
         i_rst <= 0;
         #2
