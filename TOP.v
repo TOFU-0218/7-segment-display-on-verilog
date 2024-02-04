@@ -50,7 +50,6 @@ module TOP(
         .i_data_1(data_1),
         .i_data_2(data_2),
         .i_data_3(data_3),
-        .i_clk(i_clk),
         .i_rst(i_rst),
         .i_ctrl(ctrl),
         .o_data(o_LED)
