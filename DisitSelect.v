@@ -9,13 +9,13 @@ module DigitSelect(
             o_ctrl <= 2'b00;
             o_digitSelect <= 4'b1110;
         end else begin
-            o_ctrl = o_ctrl + 1; // ブロッキング代入にするとなぜか動く。要修正。
+            o_ctrl = o_ctrl + 1;
             case (o_ctrl)
-                2'b00 : o_digitSelect <= 4'b1110;
-                2'b01 : o_digitSelect <= 4'b1101;
-                2'b10 : o_digitSelect <= 4'b1011;
-                2'b11 : o_digitSelect <= 4'b0111;
-                default : o_digitSelect <= 4'b1111; // 桁選択は不論理のため注意
+                2'b00 : o_digitSelect = 4'b1110;
+                2'b01 : o_digitSelect = 4'b1101;
+                2'b10 : o_digitSelect = 4'b1011;
+                2'b11 : o_digitSelect = 4'b0111;
+                default : o_digitSelect = 4'b1111; // 桁選択は不論理のため注意
             endcase
         end
     end
