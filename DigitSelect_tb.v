@@ -9,7 +9,7 @@ module DigitSelect_tb;
         $dumpvars(0, DUT);
     end
 
-    Counter DUT(
+    DigitSelect DUT(
         .i_clk  (i_clk  ),
         .i_rst  (i_rst  ),
         .o_ctrl(o_ctrl),
