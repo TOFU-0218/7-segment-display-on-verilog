@@ -6,6 +6,7 @@ module TOP(
     output [7:0] o_LED
 );
     // カウンター
+    // TODO:正論理で入力してるので、不論理になるように修正
     wire [13:0] count;
     Counter Counter(
         .i_rst(i_rst),
