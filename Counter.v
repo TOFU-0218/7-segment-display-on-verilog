@@ -1,4 +1,4 @@
-module CountUpButton(
+module Counter(
     input i_rst,
     input i_countUpClicked,
     output reg [13:0] o_count

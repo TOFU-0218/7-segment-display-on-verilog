@@ -1,4 +1,4 @@
-module CountUpButton_tb;
+module Counter_tb;
     reg i_rst = 0;
     reg i_countUpClicked = 0;
     wire [13:0] o_count;
@@ -8,7 +8,7 @@ module CountUpButton_tb;
         $dumpvars(0, DUT);
     end
 
-    CountUpButton DUT(
+    Counter DUT(
         .i_rst  (i_rst  ),
         .i_countUpClicked  (i_countUpClicked  ),
         .o_count(o_count)
