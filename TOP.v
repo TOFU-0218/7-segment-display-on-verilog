@@ -5,12 +5,13 @@ module TOP(
     output [3:0] o_digitSelect,
     output [7:0] o_LED
 );
+    assign not_i_rst = ~i_rst;
+    assign not_i_countUpClicked = ~i_countUpClicked;
     // カウンター
-    // TODO:正論理で入力してるので、不論理になるように修正
     wire [13:0] count;
     Counter Counter(
-        .i_rst(i_rst),
-        .i_countUpClicked(i_countUpClicked),
+        .i_rst(not_i_rst),
+        .i_countUpClicked(not_i_countUpClicked),
         .o_count(count)
     );
 
@@ -18,7 +19,7 @@ module TOP(
     wire [15:0] BCD;
     BinToBCD BinToBCD(
         .i_clk(i_clk),
-        .i_rst(i_rst),
+        .i_rst(not_i_rst),
         .i_count(count),
         .o_BCD(BCD)
     );
@@ -40,7 +41,7 @@ module TOP(
     wire [1:0] ctrl;
     DigitSelect DigitSelect(
         .i_clk(i_clk),
-        .i_rst(i_rst),
+        .i_rst(not_i_rst),
         .o_ctrl(ctrl),
         .o_digitSelect(o_digitSelect)
     );
@@ -51,7 +52,6 @@ module TOP(
         .i_data_1(data_1),
         .i_data_2(data_2),
         .i_data_3(data_3),
-        .i_rst(i_rst),
         .i_ctrl(ctrl),
         .o_data(o_LED)
     );

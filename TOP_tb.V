@@ -1,7 +1,7 @@
 module TOP_tb;
     reg i_clk = 0;
-    reg i_rst = 0;
-    reg i_countUpClicked = 0;
+    reg i_rst = 1;
+    reg i_countUpClicked = 1;
     wire [7:0] o_LED;
     wire [3:0] o_digitSelect;
 
@@ -24,9 +24,11 @@ module TOP_tb;
 
     initial begin
         #10
+        i_rst <= 0;
+        #10
         i_rst <= 1;
         #10
-        i_rst <= 0;
+        i_countUpClicked <= 0;
         #10
         i_countUpClicked <= 1;
         #10
@@ -45,8 +47,6 @@ module TOP_tb;
         i_rst <= 0;
         #10
         i_countUpClicked <= 1;
-        #10
-        i_countUpClicked <= 0;
         #10
         $finish;
     end
