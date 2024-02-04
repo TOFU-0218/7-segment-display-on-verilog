@@ -3,7 +3,6 @@ module MUX_tb;
     reg [7:0] i_data_1 = 8'b00000001;
     reg [7:0] i_data_2 = 8'b00000010;
     reg [7:0] i_data_3 = 8'b00000011;
-    reg i_clk = 0;
     reg [1:0] i_ctrl = 2'b00;
     reg i_rst = 0;
     wire [7:0] o_data;
@@ -18,15 +17,10 @@ module MUX_tb;
         .i_data_1  (i_data_1  ),
         .i_data_2  (i_data_2  ),
         .i_data_3  (i_data_3  ),
-        .i_clk  (i_clk  ),
         .i_rst  (i_rst  ),
         .i_ctrl(i_ctrl),
         .o_data(o_data)
     );
-
-    always #1 begin
-        i_clk <= ~i_clk;
-    end
 
     initial begin
         i_rst <= 1;
