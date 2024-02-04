@@ -1,12 +1,12 @@
 module MUX_tb;
-    reg [8:0] i_data_0 = 8'b00000000;
-    reg [8:0] i_data_1 = 8'b00000001;
-    reg [8:0] i_data_2 = 8'b00000010;
-    reg [8:0] i_data_3 = 8'b00000011;
+    reg [7:0] i_data_0 = 8'b00000000;
+    reg [7:0] i_data_1 = 8'b00000001;
+    reg [7:0] i_data_2 = 8'b00000010;
+    reg [7:0] i_data_3 = 8'b00000011;
     reg i_clk = 0;
     reg [1:0] i_ctrl = 2'b00;
     reg i_rst = 0;
-    wire [8:0] o_data;
+    wire [7:0] o_data;
 
     initial begin
         $dumpfile("wave.vcd");
