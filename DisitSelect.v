@@ -1,4 +1,4 @@
-module Counter(
+module DigitSelect(
     input i_clk,
     input i_rst,
     output reg [1:0] o_ctrl = 2'b00,

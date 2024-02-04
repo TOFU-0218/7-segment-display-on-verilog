@@ -1,4 +1,4 @@
-module Counter_tb;
+module DigitSelect_tb;
     reg i_clk = 0;
     reg i_rst = 0;
     wire [1:0] o_ctrl;
