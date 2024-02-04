@@ -6,10 +6,10 @@ module BinToBCD(
 );
     reg [13:0] temp1 = 14'b0;
     reg [13:0] temp2 = 14'b0;
-    reg [13:0] thousands = 4'b0;
-    reg [13:0] hundreds = 4'b0;
-    reg [13:0] tens = 4'b0;
-    reg [13:0] ones = 4'b0;
+    reg [13:0] thousands = 14'b0;
+    reg [13:0] hundreds = 14'b0;
+    reg [13:0] tens = 14'b0;
+    reg [13:0] ones = 14'b0;
 
     always @(posedge i_clk) begin
         if (i_rst) begin
