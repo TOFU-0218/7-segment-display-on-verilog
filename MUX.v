@@ -3,7 +3,6 @@ module MUX(
     input [7:0] i_data_1,
     input [7:0] i_data_2,
     input [7:0] i_data_3,
-    input i_rst,
     input [1:0] i_ctrl,
     output [7:0] o_data
 );
