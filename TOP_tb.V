@@ -7,7 +7,7 @@ module TOP_tb;
 
     initial begin
         $dumpfile("wave.vcd");
-        $dumpvars(1, DUT);
+        $dumpvars(0, DUT);
     end
 
     TOP DUT(
