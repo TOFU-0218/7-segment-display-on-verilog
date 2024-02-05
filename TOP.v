@@ -47,11 +47,19 @@ module TOP(
     );
 
     // マルチプレクサ
+    wire [7:0] not_data_1;
+    wire [7:0] not_data_2;
+    wire [7:0] not_data_3;
+    wire [7:0] not_data_4;
+    assign not_data_0 = ~data_0;
+    assign not_data_1 = ~data_1;
+    assign not_data_2 = ~data_2;
+    assign not_data_3 = ~data_3;
     MUX MUX(
-        .i_data_0(data_0),
-        .i_data_1(data_1),
-        .i_data_2(data_2),
-        .i_data_3(data_3),
+        .i_data_0(not_data_0),
+        .i_data_1(not_data_1),
+        .i_data_2(not_data_2),
+        .i_data_3(not_data_3),
         .i_ctrl(ctrl),
         .o_data(o_LED)
     );
