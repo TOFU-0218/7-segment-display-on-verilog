@@ -23,31 +23,31 @@ module TOP_tb;
     end
 
     initial begin
-        #10
+        #20
         i_rst <= 0;
-        #10
+        #20
         i_rst <= 1;
-        #10
+        #20
         i_countUpClicked <= 0;
-        #10
+        #20
         i_countUpClicked <= 1;
-        #10
+        #20
         i_countUpClicked <= 0;
-        #15
+        #30
         i_countUpClicked <= 1;
-        #10
+        #20
         i_countUpClicked <= 0;
-        #10
+        #20
         i_countUpClicked <= 1;
-        #10
+        #20
         i_countUpClicked <= 0;
-        #10
+        #20
         i_rst <= 1;
-        #10
+        #20
         i_rst <= 0;
-        #10
+        #20
         i_countUpClicked <= 1;
-        #10
+        #20
         $finish;
     end
 endmodule

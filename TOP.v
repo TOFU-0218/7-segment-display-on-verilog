@@ -7,6 +7,14 @@ module TOP(
 );
     assign not_i_rst = ~i_rst;
     assign not_i_countUpClicked = ~i_countUpClicked;
+
+    // 遅延クロック
+    wire delayClock;
+    Clock Clock(
+        .i_clk(i_clk),
+        .o_delayClock(delayClock)
+    );
+
     // カウンター
     wire [13:0] count;
     Counter Counter(
@@ -18,7 +26,7 @@ module TOP(
     // バイナリからBCDに変換
     wire [15:0] BCD;
     BinToBCD BinToBCD(
-        .i_clk(i_clk),
+        .i_clk(delayClock),
         .i_rst(not_i_rst),
         .i_count(count),
         .o_BCD(BCD)
@@ -40,17 +48,17 @@ module TOP(
     // 桁選択用の信号
     wire [1:0] ctrl;
     DigitSelect DigitSelect(
-        .i_clk(i_clk),
+        .i_clk(delayClock),
         .i_rst(not_i_rst),
         .o_ctrl(ctrl),
         .o_digitSelect(o_digitSelect)
     );
 
     // マルチプレクサ
+    wire [7:0] not_data_0;
     wire [7:0] not_data_1;
     wire [7:0] not_data_2;
     wire [7:0] not_data_3;
-    wire [7:0] not_data_4;
     assign not_data_0 = ~data_0;
     assign not_data_1 = ~data_1;
     assign not_data_2 = ~data_2;
