@@ -8,12 +8,14 @@ module TOP(
     assign not_i_rst = ~i_rst;
     assign not_i_countUpClicked = ~i_countUpClicked;
 
+    /*
     // 遅延クロック
     wire delayClock;
     Clock Clock(
         .i_clk(i_clk),
         .o_delayClock(delayClock)
     );
+    */
 
     // カウンター
     wire [13:0] count;
@@ -26,7 +28,7 @@ module TOP(
     // バイナリからBCDに変換
     wire [15:0] BCD;
     BinToBCD BinToBCD(
-        .i_clk(delayClock),
+        .i_clk(i_clk),
         .i_rst(not_i_rst),
         .i_count(count),
         .o_BCD(BCD)
@@ -49,7 +51,7 @@ module TOP(
     wire [1:0] ctrl;
     wire [3:0] not_o_digitSelect;
     DigitSelect DigitSelect(
-        .i_clk(delayClock),
+        .i_clk(i_clk),
         .i_rst(not_i_rst),
         .o_ctrl(ctrl),
         .o_digitSelect(not_o_digitSelect)
