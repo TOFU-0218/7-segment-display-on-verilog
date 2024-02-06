@@ -47,11 +47,18 @@ module TOP(
         .o_data_3(data_3)
     );
     
+    // ディスプレイ用のクロック信号を生成
+    wire clockForDispaly;
+    ClockForDisplay ClockForDisplay(
+        .i_clk(i_clk),
+        .o_clockForDisplay(clockForDispaly)
+    );
+    
     // 桁選択用の信号
     wire [1:0] ctrl;
     wire [3:0] not_o_digitSelect;
     DigitSelect DigitSelect(
-        .i_clk(i_clk),
+        .i_clk(clockForDispaly),
         .i_rst(not_i_rst),
         .o_ctrl(ctrl),
         .o_digitSelect(not_o_digitSelect)
