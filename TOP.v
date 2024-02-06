@@ -47,12 +47,14 @@ module TOP(
     
     // 桁選択用の信号
     wire [1:0] ctrl;
+    wire [3:0] not_o_digitSelect;
     DigitSelect DigitSelect(
         .i_clk(delayClock),
         .i_rst(not_i_rst),
         .o_ctrl(ctrl),
-        .o_digitSelect(o_digitSelect)
+        .o_digitSelect(not_o_digitSelect)
     );
+    assign o_digitSelect = ~not_o_digitSelect;
 
     // マルチプレクサ
     wire [7:0] not_data_0;
